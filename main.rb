@@ -94,6 +94,8 @@ get '/ducks/search_results_user' do
   }
 end
 
+
+
 get '/sign_up' do
 
   erb :new_user
@@ -132,6 +134,15 @@ post '/ducks' do # sends the new duck info to server
   redirect '/'
 end
 
+delete '/ducks' do
+  # redirect '/login' unless logged_in?
+  # redirect "/ducks/#{params['id']}" unless current_user.id == duck['user_id']
+
+  delete_duck(params['duck_id'])
+
+  redirect '/'
+end
+
 
 
 get '/ducks/:duck_id' do # this is a SHOW, we're showing 1 post.
@@ -145,11 +156,7 @@ get '/ducks/:duck_id' do # this is a SHOW, we're showing 1 post.
   }
 end
 
-delete '/ducks' do
-  delete_duck(params['duck_id'])
 
-  redirect '/'
-end
 
 get '/ducks/:id/edit' do
   redirect '/login' unless logged_in?
@@ -160,7 +167,7 @@ get '/ducks/:id/edit' do
 
   duck = db_query(sql, [params['id']]).first
   
-  redirect "/ducks/#{params['id']}" unless current_user.id == duck['user_id']
+  redirect "/ducks/#{params['id']}" unless current_user.id == find_duck(params['id']).first['user_id']
 
 
   erb :edit_duck, locals: {
@@ -171,7 +178,8 @@ end
 
 put '/ducks/:id' do
    redirect '/login' unless logged_in?
-   redirect "/ducks/#{params['id']}" unless current_user.id == duck['user_id']
+   redirect "/ducks/#{params['id']}" unless current_user.id == find_duck(params['id']).first['user_id']
+
   update_duck(
     params['name'],
     params['image_url'],

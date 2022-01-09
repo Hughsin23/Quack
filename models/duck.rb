@@ -26,12 +26,12 @@ def create_duck(name, image_url, location_spotted, user_id, likes_count, comment
 end
 
 def delete_duck(id)
-    db_query("delete from ducks where id = $1;"[id])
+    db_query("delete from ducks where id = $1;", [id])
 end
 
 def update_duck(name, image_url, location_spotted, id)
 
-    sql = "UPDATE ducks set name = $1, image_url = $2, location = $3 where id = $4"
+    sql = "UPDATE ducks set name = $1, image_url = $2, location_spotted = $3 where id = $4"
     db_query(sql, [
         name,
         image_url,
@@ -49,3 +49,7 @@ def random_five_ducks()
     db_query(sql)
 end
 
+def find_duck(id)
+    sql = "select * from ducks where id = $1;"
+    db_query(sql, [id])
+end
