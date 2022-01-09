@@ -3,8 +3,9 @@
 
     <h2>Spotted at <%= duck['location_spotted'] %></h2>
 
-    <img src="<%= duck['image_url']%>" alt="Picture of a duck">
+    <h3>number of likes: <%= duck['likes_count']%></h3>
 
+    <img src="<%= duck['image_url']%>" alt="Picture of a duck">
 
 
     <% if logged_in? && current_user.id == duck['user_id']%>
@@ -18,4 +19,23 @@
         </form>
     <%end%>
 
+    <% if logged_in? && not_liked?(duck['id'])%>
+    <form action="/like" method="post">
+    <input type="hidden" name="duck_id" value="<%= duck['id']%>">
+    <input type="hidden" name="user_id" value="<%= current_user.id%>">
+    <button>Like</button>
+
+    
+    </form>
+    <% end %>
+
+    <% if logged_in? && liked?(duck['id'])%>
+    <form action="/unlike" method="post">
+    <input type="hidden" name="duck_id" value="<%= duck['id']%>">
+    <input type="hidden" name="user_id" value="<%= current_user.id%>">
+    <button>Unlike</button>
+
+    
+    </form>
+    <% end %>
 </div>

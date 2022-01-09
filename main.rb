@@ -171,8 +171,8 @@ get '/ducks/:id/edit' do
 end
 
 put '/ducks/:id' do
-  # redirect '/login' unless logged_in?
-  # redirect "/ducks/#{params['id']}" unless current_user.id == duck['user_id']
+   redirect '/login' unless logged_in?
+   redirect "/ducks/#{params['id']}" unless current_user.id == duck['user_id']
   update_duck(
     params['name'],
     params['image_url'],
@@ -210,5 +210,21 @@ delete '/session' do
   redirect '/login'
 end
 
+post '/like' do
+  redirect '/login' unless logged_in?
+  redirect "/ducks/#{params['duck_id']}" unless current_user.id == params['user_id']
+
+  like_duck(params['user_id'], params['duck_id'])
+  redirect "/ducks/#{params['duck_id']}"
+end
+
+post '/unlike' do
+  redirect '/login' unless logged_in?
+  redirect "/ducks/#{params['duck_id']}" unless current_user.id == params['user_id']
+
+  unlike_duck(params['user_id'], params['duck_id'])
+  redirect "/ducks/#{params['duck_id']}"
 
 
+
+end
