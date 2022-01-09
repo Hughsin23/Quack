@@ -1,0 +1,21 @@
+<div class="duck-info">
+    <h1><%= duck['name'] %></h1>
+
+    <h2>Spotted at <%= duck['location_spotted'] %></h2>
+
+    <img src="<%= duck['image_url']%>" alt="Picture of a duck">
+
+
+
+    <% if logged_in? && current_user.id == duck['user_id']%>
+
+        <a href="/ducks/<%= duck['id']%>/edit">Edit your duck</a>
+        <form action="/ducks" mothod="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="duck_id" value="<%= duck['id'] %>">
+            <button>Delete your duck</button>
+
+        </form>
+    <%end%>
+
+</div>

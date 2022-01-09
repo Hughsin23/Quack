@@ -1,0 +1,6 @@
+<%results.each do |result| %>
+    <article>
+        <a href="/ducks/<%= result['id'] %>"><%= result['name'] %></a>
+        <img src="<%=result['image_url']%>" alt="picture of <%result['name']%> the duck">
+    </article>
+<% end %>

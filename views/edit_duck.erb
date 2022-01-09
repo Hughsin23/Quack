@@ -1,0 +1,16 @@
+<h1>Update your duck!</h1>
+
+<form action="/ducks/<%= duck['id']%>" method="post">
+<input type="hidden" name="_method" value="put">
+<label for="">Name</label>
+<input type="text" name="name" value="<%= duck['name'] %>">
+
+<label for="">Image</label>
+<input type="url" name="image_url" value="<%= duck['image_url'] %>">
+
+<label for="">Location Spotted</label>
+<input type="text" name="location_spotted" value="<%= duck['location_spotted'] %>">
+
+
+<button>Update</button>
+</form>
