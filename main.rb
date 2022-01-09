@@ -42,9 +42,6 @@ def current_user
   return OpenStruct.new(user) # this returns the user in an object-like state, so on the layout erb we can use js-like stuff like current_user.email
 end
 
-def password_correct?(pass, result)
-  return BCrypt::Password.new(result[0]['password_digest']) == pass
-end
 
 # def same_user? 
 #   sql = 'select * from users where id = $1;'
@@ -141,8 +138,10 @@ get '/ducks/:duck_id' do # this is a SHOW, we're showing 1 post.
   duck_id = params['duck_id']
   duck = db_query("select * from ducks where id = $1;", [duck_id]).first
 
+  comments = db_query('select * from comments where duck_id = $1', [duck_id])
   erb :show_duck, locals: {
-    duck: duck
+    duck: duck,
+    comments: comments
   }
 end
 
@@ -224,7 +223,19 @@ post '/unlike' do
 
   unlike_duck(params['user_id'], params['duck_id'])
   redirect "/ducks/#{params['duck_id']}"
+end
 
+post '/comment' do
+  redirect '/login' unless logged_in?
+  redirect "/ducks/#{params['duck_id']}" unless current_user.id == params['user_id']
 
+  if params['content'].length > 255 
+    redirect "/ducks/#{params['duck_id']}" 
+  end
+
+  
+  create_comment(params['content'], params['user_id'], params['duck_id'])
+
+  redirect "/ducks/#{params['duck_id']}"
 
 end

@@ -14,3 +14,6 @@ def find_user_id(email)
     db_query('select * from users where email = $1;', [email]).first['id']
 end
 
+def find_user_email(id)
+    db_query('select * from users where id = $1;', [id]).first['email']
+end
