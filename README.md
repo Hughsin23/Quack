@@ -21,5 +21,5 @@ I think there's also a more efficient way to manipulate my resources
 you can find a link to my relational charts/wireframes [here](https://imgur.com/a/wv29UyY)
 
 
-
+![GitHub Light](https://github.com/github-light.png#gh-dark-mode-only)
 
