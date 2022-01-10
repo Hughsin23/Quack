@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Hello World</title>
-  <link rel='stylesheet' href='../stylesheets/main.css'>
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -16,15 +17,16 @@
       </form>
     </header>
   <% else %>
-    <header>
-    <a href="/sign_up">Sign up!</a>
-    <a href="/login">Log in!</a>
-    </header> 
-  <% end %>
   <nav>
-    <a href="/">Home</a>
-    <a href="/ducks/search">Search</a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/ducks/search">Search</a></li>
+      <li><a href="/sign_up">Sign up</a></li>
+      <li><a href="/login">Log in</a></li>
+    </ul>
   </nav>
+  <% end %>
+
 
 
 
@@ -32,6 +34,6 @@
 
 
 
-  <footer> &copy; Hugh Sinclair </footer>
+  <footer class="copyright"> &copy; Hugh Sinclair </footer>
 </body>
 </html>

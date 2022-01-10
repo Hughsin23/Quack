@@ -3,14 +3,11 @@
     <a href="ducks/new">Share your quack!</a>    
 <% end %>
 
-
-<section class="quacks">
-    <% ducks.each do |duck| %>
-        <h3>
-        <a href="/ducks/<%= duck['id']%>"><%= duck['name']%></a>
-        <img src="<%= duck['image_url']%>" alt="A picture of <%= duck['name']%> the duck">
-        </h3>
-    <% end %>
-</section>
-
-<a href="ducks/search">Search for a duck!</a>
+<div class="quackers">
+        <% ducks.each do |duck| %>
+            <h3>
+            <img src="<%= duck['image_url']%>" alt="A picture of <%= duck['name']%> the duck">
+            <a href="/ducks/<%= duck['id']%>"><%= duck['name']%></a>
+            </h3>
+        <% end %>
+</div>

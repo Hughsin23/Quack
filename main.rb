@@ -180,6 +180,7 @@ put '/ducks/:id' do
    redirect '/login' unless logged_in?
    redirect "/ducks/#{params['id']}" unless current_user.id == find_duck(params['id']).first['user_id']
 
+  
   update_duck(
     params['name'],
     params['image_url'],

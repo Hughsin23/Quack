@@ -1,9 +1,123 @@
 body {
-    background-color: mistyrose;
+    background-color: skyblue;
+    font-family: "Comic Neue", sans-serif;
+}
+
+h1 {
+    font-family: "Comic Neue", sans-serif;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 a{
+    font-family: "Comic Neue", sans-serif;
+    text-decoration: none;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+
+nav {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    width:50%;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.2);
+  }
+  
+  li {
+    float: left;
+    text-align: center;
+    width: 25%;
+    border-radius: 100px;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: rgba(0,0,0,0.2);
+  }
+
+.quackers {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    /* padding-top: 80px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 15px;
+    column-gap: 5px;
+    text-align: center; */
+    width: 90%;
+}
+
+.quackers img {
+    width: 300px;
+    height: 300px;
 }
 
 img {
     max-width: 500px;
-    display: block;
+    display: flex;
+    padding: 20px;
 }
 
+.comment-footer {
+    padding-top: 0px;
+    padding-left: 15px;
+    font-size: small;
+    text-align: left;
+}
+
+.comment {
+    padding-left: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    text-align: left;
+}
+
+.duck-info{
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    background-color: rgba(255,228,225,0.3);
+    padding: 25px;
+}
+
+
+.show-duck{
+    display: inline-block;
+    text-align: center;
+}
+.copyright {
+    padding-top: 140px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    font-family:'Times New Roman', Times, serif;
+}
+
+form{
+    text-align: center;
+}
