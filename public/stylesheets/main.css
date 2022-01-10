@@ -42,7 +42,7 @@ ul {
     float: left;
     text-align: center;
     width: 25%;
-    border-radius: 100px;
+    
   }
   
   li a {
@@ -51,6 +51,7 @@ ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    border-radius: 100px;
   }
   
   /* Change the link color to #111 (black) on hover */
