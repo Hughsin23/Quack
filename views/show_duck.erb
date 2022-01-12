@@ -48,7 +48,7 @@
             <p class="comment">
                 <%= comment['content']%>
                 <footer class="comment-footer">
-                    posted by <%= find_user_email(comment['user_id'])%>
+                    posted by <%= comment['email']%>
                 </footer>
             </p>
         <% end %>

@@ -1,7 +1,10 @@
 <h1>Show us your Quack!</h1>
-<% if logged_in? %>
-    <a href="ducks/new">Share your quack!</a>    
-<% end %>
+<div class="share">
+    <% if logged_in? %>
+        <a href="ducks/new">Share your quack!</a>    
+    <% end %>
+</div>
+
 
 <div class="quackers">
         <% ducks.each do |duck| %>

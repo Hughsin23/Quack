@@ -122,3 +122,18 @@ img {
 form{
     text-align: center;
 }
+
+.share {
+    text-align: center;
+}
+
+.share a {
+    font-family: "Comic Neue", sans-serif;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 100px;
+    padding: 5px;
+
+}

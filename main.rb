@@ -1,8 +1,8 @@
 
 require 'sinatra'
-require 'sinatra/reloader' #stops and restarts your app when you change your code
+require 'sinatra/reloader' if development? #stops and restarts your app when you change your code
 require 'pg' # we need these functions to talk to the db
-require 'pry' #allows us to use commands like binding.pry to debug
+require 'pry' if development? #allows us to use commands like binding.pry to debug
 require 'bcrypt' # allows us to use the encryption digestion for passwords
 require 'cloudinary'
 
@@ -149,7 +149,7 @@ get '/ducks/:duck_id' do # this is a SHOW, we're showing 1 post.
   duck_id = params['duck_id']
   duck = db_query("select * from ducks where id = $1;", [duck_id]).first
 
-  comments = db_query('select * from comments where duck_id = $1', [duck_id])
+  comments = db_query('select * from comments join users on (users.id = comments.user_id) where duck_id = $1', [duck_id]) 
   erb :show_duck, locals: {
     duck: duck,
     comments: comments
@@ -248,3 +248,5 @@ post '/comment' do
   redirect "/ducks/#{params['duck_id']}"
 
 end
+
+
